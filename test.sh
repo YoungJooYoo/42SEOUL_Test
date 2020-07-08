@@ -218,7 +218,7 @@ then
 
 elif [[ $PROJECT == "C05" ]]
 then
-    MAX_EXERCISE=3
+    MAX_EXERCISE=4
     test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
