@@ -19,6 +19,20 @@ cd CPiscineTest
 alias ptest="sh $(echo $(pwd)/test.sh)"
 ```
 
+아래 커맨드를 실행하여 .zshrc 파일에 등록해두시면 터미널을 새로 켜도 자동으로 편리하게 사용할 수 있도록 별칭이 등록됩니다.
+```bash
+echo "alias ptest=\"sh $(echo $(pwd)/test.sh)\"" >> ~/.zshrc
+```
+
+## 업데이트
+
+깃 저장소에 새로운 스크립트 및 테스트 코드, 그리고 오류 수정 등이 올라올 경우,
+클론한 저장소 폴더로 이동한 후, git pull로 저장소를 업데이트 해주세요.
+```bash
+cd CPiscineTest
+git pull
+```
+
 ## 사용법
 
 테스트를 수행할 과제 프로젝트의 디렉토리로 이동합니다.
