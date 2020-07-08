@@ -184,7 +184,7 @@ then
 
 elif [[ $PROJECT == "C02" ]]
 then
-    MAX_EXERCISE=12
+    MAX_EXERCISE=11
     test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
