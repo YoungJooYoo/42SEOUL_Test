@@ -11,10 +11,14 @@ export PRINT_RESULT=$2
 
 find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 
+compile() {
+    gcc -Wall -Wextra -Werror -o test_ex$1 ex$1/*.c $DIR/$PROJECT/ex$1.c
+}
+
 test_c_exercise() {
     echo " === Test Exercise $1 === "
     DIR=$(dirname "$BASH_SOURCE")
-    gcc -Wall -Wextra -Werror -o test_ex$1 ex$1/*.c $DIR/$PROJECT/ex$1.c
+    compile $1
     ./test_ex$1 >> utest
     if [[ $PRINT_RESULT == "p" ]]
     then
@@ -58,10 +62,14 @@ then
 elif [[ $PROJECT == "C02" ]]
 then
     norminette -R CheckForbiddenSourceHeader
-    for I in {0..12}
+    for I in {0..11}
     do
         test_c_exercise $(printf "%02d" "$I")
     done
+    echo " >> Your result <<"
+    compile 12
+    ./test_ex12 | cat -te
+    rm -rf test_ex12
 elif [[ $PROJECT == "C03" ]]
 then
     norminette -R CheckForbiddenSourceHeader
