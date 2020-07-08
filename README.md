@@ -12,15 +12,13 @@
 git clone https://git.tensiya.net/tsy/CPiscineTest
 ```
 
-2. 클론한 저장소 폴더로 이동한 후, 셸 스크립트의 전체 경로를 얻습니다.
-그리고 테스트 스크립트를 _alias_ 커맨드를 사용해 별칭으로 등록합니다.
+2. 클론한 저장소 폴더로 이동한 후, 아래 처럼 _alias_ 커맨드를 사용해 테스트 스크립트를 별칭으로 등록합니다.
 ```bash
 cd CPiscineTest
 alias ptest="sh $(echo $(pwd)/test.sh)"
 ```
 
-3. 아래 커맨드를 실행하여 .zshrc 파일에 등록해두시면 터미널을 새로 켜도 자동으로 편리하게 사용할 수 있도록 별칭이 등록됩니다.
-* 클론한 저장소 폴더에서 실행하셔야 합니다.
+3. **클론한 저장소 폴더에서** 아래 커맨드를 실행하여 .zshrc 파일에 등록해두시면 터미널을 새로 켜도 자동으로 편리하게 사용할 수 있도록 별칭이 등록됩니다.
 ```bash
 echo "alias ptest=\"sh $(echo $(pwd)/test.sh)\"" >> ~/.zshrc
 ```
