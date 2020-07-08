@@ -63,8 +63,8 @@ test_shell_exercise() {
     then
         run_shell_prepare $1
     fi
-    $2 >> ../utest
-    run_shell_answer $1 >> ../result
+    $2 | cat -e >> ../utest
+    run_shell_answer $1 | cat -e >> ../result
     cd ..
 
     if [[ $PRINT_RESULT == "p" ]]
@@ -149,14 +149,19 @@ then
     test_shell_exercise 9 "file -m ft_magic 42 24" prepare
 elif [[ $PROJECT == "Shell01" ]]
 then
-    test_shell_exercise 1 "sh ./print_groups.sh | cat -e"
-    test_shell_exercise 2 "sh ./find_sh.sh | cat -e" prepare
-    test_shell_exercise 3 "sh ./count_files.sh | cat -e" prepare
-    test_shell_exercise 4 "sh ./MAC.sh | cat -e"
-    test_shell_exercise 5 "cat -e \"\\\?\$\*\'\MaRViN\'\*\$\?\\\""
-    test_shell_exercise 6 "sh ./skip.sh | cat -e" prepare
-    test_shell_exercise 7 "sh ./r_dwssap.sh | cat -e" prepare
-    test_shell_exercise 8 "sh ./add_chelou.sh | cat -e" prepare
+    export FT_LINE1=3
+    export FT_LINE2=11
+    export FT_NBR1=\\\"\\\"\!\\\"\\\"\!\\\"\\\"\!\\\"\\\"\!\\\"\\\"\!\\\"\\\"
+    export FT_NBR2=dcccccrrrmdooooommmddddoorrrrrr
+
+    test_shell_exercise 1 "sh ./print_groups.sh"
+    test_shell_exercise 2 "sh ./find_sh.sh" prepare
+    test_shell_exercise 3 "sh ./count_files.sh" prepare
+    test_shell_exercise 4 "sh ./MAC.sh"
+    test_shell_exercise 5 "cat -e \"\\?\$*'MaRViN'*\$?\\\""
+    test_shell_exercise 6 "sh ./skip.sh" prepare
+    test_shell_exercise 7 "sh ./r_dwssap.sh"
+    test_shell_exercise 8 "sh ./add_chelou.sh"
 elif [[ $PROJECT == "C00" ]]
 then
     MAX_EXERCISE=8

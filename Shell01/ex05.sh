@@ -1,1 +1,1 @@
-echo '42' | tr -d '\n' | cat -e
+echo '42' | tr -d '\n'
