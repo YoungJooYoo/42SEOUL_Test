@@ -147,12 +147,16 @@ then
     test_shell_exercise 7 "cat -e b"
     test_shell_exercise 8 "sh clean" prepare
     test_shell_exercise 9 "file -m ft_magic 42 24" prepare
-
 elif [[ $PROJECT == "Shell01" ]]
 then
-    echo
-
-
+    test_shell_exercise 1 "sh ./print_groups.sh | cat -e"
+    test_shell_exercise 2 "sh ./find_sh.sh | cat -e" prepare
+    test_shell_exercise 3 "sh ./count_files.sh | cat -e" prepare
+    test_shell_exercise 4 "sh ./MAC.sh | cat -e"
+    test_shell_exercise 5 "cat -e \"\\\?\$\*\'\MaRViN\'\*\$\?\\\""
+    test_shell_exercise 6 "sh ./skip.sh | cat -e" prepare
+    test_shell_exercise 7 "sh ./r_dwssap.sh | cat -e" prepare
+    test_shell_exercise 8 "sh ./add_chelou.sh | cat -e" prepare
 elif [[ $PROJECT == "C00" ]]
 then
     MAX_EXERCISE=8
