@@ -45,24 +45,31 @@ test_c_exercise() {
     rm -rf test_ex$1 utest
 }
 
+test_norminette() {
+    norminette -R CheckForbiddenSourceHeader $(seq $1 $2 | xargs printf "ex%02d ")
+}
+
 if [[ $PROJECT == "C00" ]]
 then
-    norminette -R CheckForbiddenSourceHeader
-    for I in {0..8}
+    MAX_EXERCISE=8
+    test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
 elif [[ $PROJECT == "C01" ]]
 then
-    norminette -R CheckForbiddenSourceHeader
-    for I in {0..8}
+    MAX_EXERCISE=8
+    test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
 elif [[ $PROJECT == "C02" ]]
 then
-    norminette -R CheckForbiddenSourceHeader
-    for I in {0..11}
+    MAX_EXERCISE=12
+    test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
@@ -72,14 +79,16 @@ then
     rm -rf test_ex12
 elif [[ $PROJECT == "C03" ]]
 then
-    norminette -R CheckForbiddenSourceHeader
-    for I in {0..5}
+    MAX_EXERCISE=5
+    test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
 elif [[ $PROJECT == "C04" ]]
 then
-    norminette -R CheckForbiddenSourceHeader
+    MAX_EXERCISE=2
+    test_norminette 0 $MAX_EXERCISE
     for I in {0..2}
     do
         test_c_exercise $(printf "%02d" "$I")
