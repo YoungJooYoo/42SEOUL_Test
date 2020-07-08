@@ -208,9 +208,9 @@ then
 
 elif [[ $PROJECT == "C04" ]]
 then
-    MAX_EXERCISE=2
+    MAX_EXERCISE=3
     test_norminette 0 $MAX_EXERCISE
-    for I in {0..2}
+    for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
