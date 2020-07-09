@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <string.h>
 char *ft_strcpy(char *dest, char *src);
 int main(void)
 {
@@ -8,8 +9,9 @@ int main(void)
 	char* ret;
 
 	ret = ft_strcpy(buffer, text);
-	printf("%s - %d", buffer, (int)buffer - (int)ret);
-	printf("%d", (int)ft_strcpy(0, 0));
+	printf("%s - %d\n", buffer, (int)buffer - (int)ret);
+	ret = strcpy(buffer, text);
+	printf("%s - %d\n", buffer, (int)buffer - (int)ret);
     return 0;
 }
 
