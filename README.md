@@ -9,7 +9,7 @@
 
 1. 적당한 곳에 저장소를 클론합니다.
 ```bash
-git clone https://github.com/T2SU/42SEOUL_Test.git
+git clone https://git.tensiya.net/tsy/CPisineTest.git
 ```
 
 2. 클론한 저장소 폴더로 이동한 후, 아래 처럼 _alias_ 커맨드를 사용해 테스트 스크립트를 별칭으로 등록합니다.
