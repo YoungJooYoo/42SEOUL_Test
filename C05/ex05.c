@@ -9,5 +9,6 @@ int main(void)
 	printf("sqrt(%d) = %d\n", (int)0x80000000, ft_sqrt((int)0x80000000));
 	printf("sqrt(%d) = %d\n", 494949494, ft_sqrt(494949494));
 	printf("sqrt(%d) = %d\n", 499949494, ft_sqrt(499949494));
-	printf("sqrt(%d) = %d\n", 2147395600, ft_sqrt(2147395600));
+	for (int i = 2147395598; i <= 2147395620; i++)
+		printf("sqrt(%d) = %d\n", i, ft_sqrt(i));
 }
