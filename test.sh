@@ -16,11 +16,11 @@ test_c_exercise() {
     echo " === Test Exercise $1 === "
     DIR=$(dirname "$BASH_SOURCE")
     compile $1
-    ./test_ex$1 >> utest
+    ./test_ex$1 $2 >> utest
     if [[ $PRINT_RESULT == "p" ]]
     then
         echo " >> Your result <<"
-        ./test_ex$1
+        ./test_ex$1 $2
         echo
         echo " >> Expected result <<"
         cat $DIR/$PROJECT/ex$1.result
@@ -218,7 +218,7 @@ then
 
 elif [[ $PROJECT == "C05" ]]
 then
-    MAX_EXERCISE=8
+    MAX_EXERCISE=7
     test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
@@ -226,4 +226,10 @@ then
     done
 
 
+elif [[ $PROJECT == "C06" ]]
+then
+    test_c_exercise 00
+    test_c_exercise 01 "test0 test1 test2 test3 teset2 test1 asda"
+    test_c_exercise 02 "test0 test1 test2 test3 teset2 test1 asda"
+    test_c_exercise 03 "test0 test1 zxcacas34 Trew4Sa !!235ADFF GoGol HelloWorld helloworld test2 test3 teset2 test1 asda"
 fi
