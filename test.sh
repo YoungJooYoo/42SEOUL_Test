@@ -232,4 +232,16 @@ then
     test_c_exercise 01 "test0 test1 test2 test3 teset2 test1 asda"
     test_c_exercise 02 "test0 test1 test2 test3 teset2 test1 asda"
     test_c_exercise 03 "test0 test1 zxcacas34 Trew4Sa !!235ADFF GoGol HelloWorld helloworld test2 test3 teset2 test1 asda"
+
+
+elif [[ $PROJECT == "C07" ]]
+then
+    MAX_EXERCISE=1
+    test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
+    do
+        test_c_exercise $(printf "%02d" "$I")
+    done
+
+
 fi
