@@ -1,0 +1,38 @@
+base_from=')!@#$%^&*(' base_to='0123456789'
+Result: '1234567890'
+base_from='OI' base_to='01'
+Result: '10000000000000000'
+base_from=''"?>.<,QWERT ABC' base_to='0123456789ABCDEF'
+Result: NULL!
+base_from='aQqR Tt' base_to='0123456789'
+Result: NULL!
+base_from='=_|{}' base_to='0123456789'
+Result: '-2147438648'
+base_from='ZXCS DF12345;:'"qwertyas@#$' base_to='0123456789'
+Result: NULL!
+base_from='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_= ' base_to='0123456789'
+Result: NULL!
+base_from='!@#$' base_to='012'
+Result: '0'
+base_from='123456' base_to='ABCDEFG'
+Result: 'FDAD'
+base_from='12345-64' base_to='qwertyui'
+Result: NULL!
+base_from='12345678+' base_to='qwertyuio'
+Result: NULL!
+base_from='' base_to=''
+Result: NULL!
+base_from='' base_to='qwerz'
+Result: NULL!
+base_from='a12356a7' base_to=''
+Result: NULL!
+base_from='a123567' base_to='zxcasc'
+Result: NULL!
+base_from='a123567' base_to='asasdasdas'
+Result: NULL!
+base_from='a123567' base_to='as3ds'
+Result: NULL!
+base_from='0123456789' base_to='ole3456789'
+Result: '-le35'
+base_from=''"?>.<,QWERTABCD' base_to='0123456789ABCDEF'
+Result: '5E5D100'
