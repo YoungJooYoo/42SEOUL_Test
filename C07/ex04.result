@@ -36,3 +36,6 @@ base_from='0123456789' base_to='ole3456789'
 Result: '-le35'
 base_from=''"?>.<,QWERTABCD' base_to='0123456789ABCDEF'
 Result: '5E5D100'
+base_from='a123567' base_to='asdfqwer
+'
+Result: NULL!
