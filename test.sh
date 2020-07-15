@@ -9,7 +9,7 @@ export PRINT_RESULT=$2
 find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 
 compile() {
-    gcc -Wall -Wextra -Werror -o test_ex$1 ex$1/*.c $DIR/$PROJECT/ex$1.c
+    gcc -Wall -Wextra -Werror -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
 }
 
 test_c_exercise() {
@@ -44,6 +44,10 @@ test_c_exercise() {
 
 test_norminette() {
     norminette -R CheckForbiddenSourceHeader $(seq $1 $2 | xargs printf "ex%02d ")
+}
+
+test_norminette_real() {
+    norminette $(seq $1 $2 | xargs printf "ex%02d ")
 }
 
 run_shell_prepare() {
@@ -238,6 +242,16 @@ elif [[ $PROJECT == "C07" ]]
 then
     MAX_EXERCISE=5
     test_norminette 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
+    do
+        test_c_exercise $(printf "%02d" "$I")
+    done
+
+
+elif [[ $PROJECT == "C08" ]]
+then
+    MAX_EXERCISE=0
+    test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
