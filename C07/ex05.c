@@ -13,7 +13,7 @@ void do_test(char* str, char* charset)
 	i = 0;
 	while (array[i])
 	{
-		printf("%s (len=%d)\n", array[i], (int)strlen(array[i]));
+		printf("'%s' (len=%d)\n", array[i], (int)strlen(array[i]));
 		i++;
 	}
 }
@@ -24,5 +24,6 @@ int main(void)
 	do_test("Hello.,World,.!!KOKO!ZZZ.Hello.Good.World!KK!ZORO,Good", ",.!");
 	do_test("abcakaabcaakaabce", "bck");
 	do_test("|---AA-|GoogooGooGoo|aaaa-| Hello World Good| ^^|Nice Boat!", " |-");
+	do_test("               ", "     ");
 	return 0;
 }
