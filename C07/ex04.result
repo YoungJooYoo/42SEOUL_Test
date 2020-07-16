@@ -39,3 +39,36 @@ Result: '5E5D100'
 base_from='a123567' base_to='asdfqwer
 '
 Result: NULL!
+=====CASE01=====
+result : $7fffffff$
+real answer : $7fffffff$
+=====CASE02=====
+result : $-1111111111111111111111111111111$
+real answer : $-1111111111111111111111111111111$
+=====CASE03=====
+result : $-1023$
+real answer : $-1023$
+=====CASE04=====
+result : $a$
+real answer : $a$
+=====CASE05=====
+result : $-255$
+real answer : $-255
+=====CASE06=====
+result : $(null)$
+real answer : $(null)$
+=====CASE07=====
+result : $f$
+real answer : $f$
+=====CASE08=====
+result : $(null)$
+real answer : $(null)$
+=====CASE09=====
+result : $(null)$
+real answer : $(null)$
+=====CASE10=====
+result : $(null)$
+real answer : $(null)$
+=====CASE11=====
+result : $(null)$
+real answer : $(null)$

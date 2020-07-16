@@ -25,5 +25,6 @@ int main(void)
 	do_test("abcakaabcaakaabce", "bck");
 	do_test("|---AA-|GoogooGooGoo|aaaa-| Hello World Good| ^^|Nice Boat!", " |-");
 	do_test("               ", "     ");
+	do_test("  \t ", " \t");
 	return 0;
 }
