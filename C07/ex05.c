@@ -26,5 +26,7 @@ int main(void)
 	do_test("|---AA-|GoogooGooGoo|aaaa-| Hello World Good| ^^|Nice Boat!", " |-");
 	do_test("               ", "     ");
 	do_test("  \t ", " \t");
+	do_test("123,456,789 ,", ",l1");
+	do_test("80hzNIGZYoIa3ATwY8dRCFmBBYx0RA", "AKfwjE5l");
 	return 0;
 }

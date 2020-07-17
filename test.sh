@@ -258,4 +258,12 @@ then
     done
 
 
+elif [[ $PROJECT == "C09" ]]
+then
+    test_norminette_real 2 2
+    test_c_exercise 02
+
+
+
+
 fi
