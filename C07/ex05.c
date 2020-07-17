@@ -27,6 +27,7 @@ int main(void)
 	do_test("               ", "     ");
 	do_test("  \t ", " \t");
 	do_test("123,456,789 ,", ",l1");
+	do_test("0tNue8", "0tNue8");
 	do_test("80hzNIGZYoIa3ATwY8dRCFmBBYx0RA", "AKfwjE5l");
 	return 0;
 }
