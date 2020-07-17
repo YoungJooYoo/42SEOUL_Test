@@ -2,10 +2,9 @@
 #include <string.h>
 #include "ft.h"
 
-int		ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	printf("ft_putchar(c) -> %c\n", c);
-	return (0);
 }
 void	ft_putstr(char *str)
 {
