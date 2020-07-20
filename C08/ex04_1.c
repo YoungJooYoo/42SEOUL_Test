@@ -26,7 +26,6 @@ void	do_test(t_stock_str* par)
 int main(void)
 {
 	do_test(ft_strs_to_tab(0, 0));
-	do_test(ft_strs_to_tab(1, 0));
 
 	char *av1[] = { "HelloWorld!" };
 	do_test(ft_strs_to_tab(1, av1));

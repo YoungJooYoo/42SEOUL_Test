@@ -6,10 +6,53 @@ echo
 export PROJECT=$1
 export PRINT_RESULT=$2
 
-find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+ls -lAR
 
 compile() {
     gcc -Wall -Wextra -Werror -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
+}
+
+test_program_exercise() {
+    echo " === Test Exercise $1 === "
+    DIR=$(dirname "$BASH_SOURCE")
+
+    echo " >> Doing Makefile! << "
+    cd ex$1
+    make fclean
+    make all
+    echo
+
+    run_shell_prepare $1
+
+    echo " >> Running Program!! << "
+    run_shell_answer $1 &> utest
+    echo
+    if [[ $PRINT_RESULT == "p" ]]
+    then
+        echo " >> Your result <<"
+        cat utest
+        echo
+        echo " >> Expected result <<"
+        cat $DIR/$PROJECT/ex$1.result
+        echo
+    fi
+
+    echo " >> diff result <<"
+    diff -U 3 $DIR/$PROJECT/ex$1.result utest | cat -e
+    echo
+    DIFF_RESULT=$(diff -U 3 $DIR/$PROJECT/ex$1.result utest | cat -e)
+    if [[ $DIFF_RESULT == "" ]]
+    then
+        echo " Diff OK :D"
+    else
+        echo " Diff KO :("
+    fi
+
+    echo
+    rm -rf utest
+    make fclean
+    run_shell_clean $1
+    cd ..
 }
 
 test_c_exercise() {
@@ -43,15 +86,25 @@ test_c_exercise() {
 }
 
 test_norminette() {
-    norminette -R CheckForbiddenSourceHeader $(seq $1 $2 | xargs printf "ex%02d ")
+    for I in $(seq $1 $2)
+    do
+        find ./$(printf "ex%02d" $I) -name "*.c" -print | xargs norminette -R CheckForbiddenSourceHeader
+    done
 }
 
 test_norminette_real() {
-    norminette $(seq $1 $2 | xargs printf "ex%02d ")
+    for I in $(seq $1 $2)
+    do
+        find ./$(printf "ex%02d" $I) \( -name "*.c" -o -name "*.h" \) -print | xargs norminette
+    done
 }
 
 run_shell_prepare() {
     sh $DIR/$PROJECT/$(printf "ex%02dprepare.sh" "$1")
+}
+
+run_shell_clean() {
+    sh $DIR/$PROJECT/$(printf "ex%02dclean.sh" "$1")
 }
 
 run_shell_answer() {
@@ -223,8 +276,8 @@ then
 elif [[ $PROJECT == "C05" ]]
 then
     MAX_EXERCISE=7
-    test_norminette 0 $MAX_EXERCISE
-    for I in $(seq 0 $MAX_EXERCISE)
+    test_norminette 7 $MAX_EXERCISE
+    for I in $(seq 7 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
     done
@@ -232,10 +285,12 @@ then
 
 elif [[ $PROJECT == "C06" ]]
 then
+    MAX_EXERCISE=3
+    test_norminette 0 $MAX_EXERCISE
     test_c_exercise 00
     test_c_exercise 01 "test0 test1 test2 test3 teset2 test1 asda"
     test_c_exercise 02 "test0 test1 test2 test3 teset2 test1 asda"
-    test_c_exercise 03 "test0 test1 zxcacas34 Trew4Sa !!235ADFF GoGol HelloWorld helloworld test2 test3 teset2 test1 asda"
+    test_c_exercise 03 "test0 test1 zxcacas34 Trew4Sa "!!235ADFF" GoGol HelloWorld helloworld test2 test3 teset2 test1 asda"
 
 
 elif [[ $PROJECT == "C07" ]]
@@ -260,10 +315,20 @@ then
 
 elif [[ $PROJECT == "C09" ]]
 then
+    # TODO Test C09-ex00 (libft_creator.sh)
+    # TODO Test C09-ex01 (Makefile)
     test_norminette_real 2 2
     test_c_exercise 02
 
 
+elif [[ $PROJECT == "C10" ]]
+then
+    MAX_EXERCISE=1
+    test_norminette_real 0 $MAX_EXERCISE
+    for I in $(seq 0 $MAX_EXERCISE)
+    do
+        test_program_exercise $(printf "%02d" "$I")
+    done
 
 
 fi
