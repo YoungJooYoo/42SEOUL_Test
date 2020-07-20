@@ -6,8 +6,6 @@ echo
 export PROJECT=$1
 export PRINT_RESULT=$2
 
-ls -lAR
-
 compile() {
     gcc -Wall -Wextra -Werror -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
 }
@@ -323,7 +321,7 @@ then
 
 elif [[ $PROJECT == "C10" ]]
 then
-    MAX_EXERCISE=1
+    MAX_EXERCISE=2
     test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
