@@ -340,12 +340,13 @@ then
 
 elif [[ $PROJECT == "C11" ]]
 then
-    test_norminette_real 0 4
+    test_norminette_real 0 6
     test_c_exercise 00
     test_c_exercise 01
     test_c_exercise 02
     test_c_exercise 03
     test_c_exercise 04
     test_program_exercise 05
+    test_c_exercise 06
 
 fi
