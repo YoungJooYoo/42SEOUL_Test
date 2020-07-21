@@ -1,2 +1,2 @@
 #!/bin/sh
-rm -rf myfile gogogo 12345 dirtest myspeech
+rm -rf myfile gogogo 12345 dirtest myspeech test2

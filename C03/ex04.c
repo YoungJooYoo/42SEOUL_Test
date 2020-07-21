@@ -9,12 +9,6 @@ void do_test(char* str, char* to_find)
 }
 int main(void)
 {
-    do_test("Hello 42 SEOUL!!! 42 is true?!", " ");
-    do_test("", "43");
     do_test("", "");
-    do_test("Hello 42 SEOUL!!! 4343434343?!", "");
-    do_test("Hello 42 SEOUL!!! 42 is true?!", "true?!");
-    do_test("Hello 42 SEOUL!!! 42 is true?!", "");
-    do_test("ASDF", "");
     return 0;
 }

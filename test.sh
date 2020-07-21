@@ -98,15 +98,24 @@ test_norminette_real() {
 }
 
 run_shell_prepare() {
-    sh $DIR/$PROJECT/$(printf "ex%02dprepare.sh" "$1")
+    if [ -f $DIR/$PROJECT/$(printf "ex%02dprepare.sh" "$1") ]
+    then
+        sh $DIR/$PROJECT/$(printf "ex%02dprepare.sh" "$1")
+    fi
 }
 
 run_shell_clean() {
-    sh $DIR/$PROJECT/$(printf "ex%02dclean.sh" "$1")
+    if [ -f $DIR/$PROJECT/$(printf "ex%02dclean.sh" "$1") ]
+    then
+        sh $DIR/$PROJECT/$(printf "ex%02dclean.sh" "$1")
+    fi
 }
 
 run_shell_answer() {
-    sh $DIR/$PROJECT/$(printf "ex%02d.sh" "$1")
+    if [ -f $DIR/$PROJECT/$(printf "ex%02d.sh" "$1") ]
+    then
+        sh $DIR/$PROJECT/$(printf "ex%02d.sh" "$1")
+    fi
 }
 
 test_shell_exercise() {
@@ -328,5 +337,15 @@ then
         test_program_exercise $(printf "%02d" "$I")
     done
 
+
+elif [[ $PROJECT == "C11" ]]
+then
+    test_norminette_real 0 4
+    test_c_exercise 00
+    test_c_exercise 01
+    test_c_exercise 02
+    test_c_exercise 03
+    test_c_exercise 04
+    test_program_exercise 05
 
 fi

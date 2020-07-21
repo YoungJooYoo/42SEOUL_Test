@@ -20,10 +20,6 @@ ft_hexdump: dirtest: Is a directory
 00000000  47 6f 47 6f 47 6f 0a 31  32 33 34 35 36 0a 48 65  |GoGoGo.123456.He|$
 00000010  6c 6c 6f 20 57 6f 72 6c  64 21 21 0a              |llo World!!.|$
 0000001c$
-ft_hexdump: no_way: No such file or directory
-ft_hexdump: no_way: Bad file descriptor
-ft_hexdump: /exam: Permission denied
-ft_hexdump: /exam: Bad file descriptor
 0000000 48 65 6c 6c 6f 20 57 6f 72 6c 64 21 21 20 48 65$
 0000010 6c 6c 6f 20 48 65 6c 6c 6f 20 48 65 6c 6c 6f 20$
 0000020 0a 20 57 6f 72 6c 64 20 0a 20 57 6f 72 6c 64 57$
@@ -48,6 +44,9 @@ ft_hexdump: dirtest: Is a directory
 000001c$
 ft_hexdump: no_way: No such file or directory
 ft_hexdump: no_way: Bad file descriptor
+ft_hexdump: /exam: Permission denied
+ft_hexdump: /exam: Bad file descriptor
+ft_hexdump: no_way: No such file or directory
 ft_hexdump: /exam: Permission denied
 ft_hexdump: /exam: Bad file descriptor
 0000000 48 65 6c 6c 6f 20 48 65 6c 6c 6f 20 48 65 6c 6c$

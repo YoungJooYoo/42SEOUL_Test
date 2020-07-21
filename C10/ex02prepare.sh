@@ -5,3 +5,4 @@ echo GoGoGo >> gogogo
 touch 12345
 mkdir dirtest
 echo "Hello World!! Hello Hello Hello \n World \n WorldWorld\?\?" > myspeech
+touch test2
